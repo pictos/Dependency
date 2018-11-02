@@ -17,6 +17,9 @@ namespace Dependency.UWP.Services
                 var local = ApplicationData.Current.LocalFolder;
                 var retrivedProperties = await local.Properties.RetrievePropertiesAsync(new string[] { "System.FreeSpace" });
 
+                //For external storage
+             //   var folders = await KnownFolders.RemovableDevices.GetFoldersAsync();
+
                 return (UInt64)retrivedProperties["System.FreeSpace"];
             }
             catch (Exception ex)
@@ -25,6 +28,7 @@ namespace Dependency.UWP.Services
                 throw ex;
             }
         }
+
 
 
         //public async Task<UInt64> GetFreeSpace(StorageFolder folder)
